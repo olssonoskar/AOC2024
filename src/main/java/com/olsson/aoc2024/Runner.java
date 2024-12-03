@@ -11,7 +11,8 @@ public class Runner {
     private void allDays() {
         var solutions = List.of(
                 new Solutions(1, new Day01()),
-                new Solutions(2, new Day02())
+                new Solutions(2, new Day02()),
+                new Solutions(3, new Day03())
         );
         solutions.forEach(sol -> {
             println("Day " + sol.num);
