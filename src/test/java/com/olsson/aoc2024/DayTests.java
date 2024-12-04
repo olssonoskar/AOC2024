@@ -3,6 +3,7 @@ package com.olsson.aoc2024;
 import com.olsson.aoc2024.days.Day01;
 import com.olsson.aoc2024.days.Day02;
 import com.olsson.aoc2024.days.Day03;
+import com.olsson.aoc2024.days.Day04;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -37,5 +38,15 @@ class DayTests {
     @Test
     void test03_2() {
         assertEquals(48, new Day03().part2("3_2"));
+    }
+
+    @Test
+    void test04_1() {
+        assertEquals(18, new Day04().part1("4_1"));
+    }
+
+    @Test
+    void test04_2() {
+        assertEquals(9, new Day04().part2("4_2"));
     }
 }
