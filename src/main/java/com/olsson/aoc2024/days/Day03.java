@@ -73,7 +73,7 @@ public class Day03 implements Day {
     }
 
     private Pattern multWithDisable() {
-        return Pattern.compile("(mul\\(\\d+,\\d+\\))|(do\\(\\))|(don't\\(\\))");
+        return Pattern.compile("mul\\(\\d+,\\d+\\)|do\\(\\)|don't\\(\\)");
     }
 
     private record ResultWithFlag(long sum, boolean multEnabled) {

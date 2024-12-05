@@ -13,7 +13,8 @@ public class Runner {
                 new Solutions(1, new Day01()),
                 new Solutions(2, new Day02()),
                 new Solutions(3, new Day03()),
-                new Solutions(4, new Day04())
+                new Solutions(4, new Day04()),
+                new Solutions(5, new Day05())
         );
         solutions.forEach(sol -> {
             println("Day " + sol.num);
