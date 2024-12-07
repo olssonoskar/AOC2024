@@ -18,6 +18,10 @@ public class Grid {
         }
     }
 
+    public boolean outOfBounds(Point p) {
+        return p.x() >= width() || p.x() < 0 || p.y() >= height() || p.y() < 0;
+    }
+
     public int height() {
         return data.size();
     }
