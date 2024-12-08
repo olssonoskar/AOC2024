@@ -11,10 +11,17 @@ public class Grid {
     }
 
     public String get(Point p) {
+        return get(p, true);
+    }
+
+    public String get(Point p, boolean safe) {
         try {
             return "" + data.get(p.y()).charAt(p.x());
-        } catch (IndexOutOfBoundsException _) {
-            return "";
+        } catch (IndexOutOfBoundsException e) {
+            if (safe) {
+                return "";
+            }
+            throw e;
         }
     }
 

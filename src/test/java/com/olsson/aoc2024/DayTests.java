@@ -66,4 +66,9 @@ class DayTests {
     void test06_1() {
         assertEquals(41, new Day06().part1("6_1"));
     }
+
+    @Test
+    void test06_2() {
+        assertEquals(6, new Day06().part2("6_1"));
+    }
 }
