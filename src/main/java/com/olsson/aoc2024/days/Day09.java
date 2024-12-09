@@ -25,7 +25,6 @@ public class Day09 implements Day {
         return compactSum(compact);
     }
 
-    // 6327174567418 to high
     public long part2(String day) {
         var diskmap = InputUtils.getLines(day).getFirst();
         var fs = filesystem(diskmap);
@@ -122,7 +121,7 @@ public class Day09 implements Day {
         }
 
         private Integer getNextBlockFromEnd() {
-            for (int i = indexRight; indexLeft < i ; i--) {
+            for (int i = indexRight; indexLeft < i; i--) {
                 if (!fs.get(i).equals(-1)) {
                     indexRight = i - 1;
                     return (fs.get(i));
@@ -131,24 +130,29 @@ public class Day09 implements Day {
             return 0;
         }
 
-        // Mutates fs, possibly refactor to insert in new list
+        // Mutates fs
+        // Iterate from left and find a space large enough to store the file, swap it in place
         private void findSpace(File file) {
             var spaceCount = 0;
-            for(int i = 0; i < fs.size() && i < indexRight; i++) {
+            for(int i = 0; i < fs.size() && i <= indexRight; i++) {
                 if (fs.get(i).equals(-1)) {
                     spaceCount++;
                 } else {
                     spaceCount = 0;
                 }
                 if (spaceCount == file.blocks) {
-                    for (int j = 0; j < file.blocks; j++) {
-                        var swap = i + 1 - file.blocks + j;
-                        var remove = indexRight + 1 + j;
-                        fs.set(swap, file.id);
-                        fs.set(remove, -1);
-                    }
+                    swap(i, file);
                     return;
                 }
+            }
+        }
+
+        private void swap(int i, File file) {
+            for (int j = 0; j < file.blocks; j++) {
+                var swap = i + 1 - file.blocks + j;
+                var remove = indexRight + 1 + j;
+                fs.set(swap, file.id);
+                fs.set(remove, -1);
             }
         }
 
@@ -174,8 +178,7 @@ public class Day09 implements Day {
             return Optional.empty();
         }
 
-        private record File(int id, int blocks){
-        }
+        private record File(int id, int blocks){ }
 
     }
 }
