@@ -24,7 +24,6 @@ public class Day07 implements Day {
     public long part1(String day) {
         var input = InputUtils.getLines(day);
         return runCalibrationWith(input, this::combine);
-
     }
 
     public long part2(String day){
