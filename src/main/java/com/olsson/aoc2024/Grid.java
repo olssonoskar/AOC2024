@@ -1,6 +1,8 @@
 package com.olsson.aoc2024;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class Grid {
 
@@ -23,6 +25,29 @@ public class Grid {
             }
             throw e;
         }
+    }
+
+    public List<Point> allMatching(String value) {
+        var values = new ArrayList<Point>();
+        for (int i = 0; i < height(); i++) {
+            for (int j = 0; j < width(); j++) {
+                var p = new Point(j, i);
+                var onGrid = get(new Point(j, i), false);
+                if (onGrid.equals(value)) {
+                    values.add(p);
+                }
+            }
+        }
+        return values;
+    }
+
+    public List<Point> adjacentNeighbors(Point p) {
+        return Stream.of(p.move(0, 1),
+                        p.move(0, -1),
+                        p.move(1, 0),
+                        p.move(-1, 0)
+                ).filter(neighbor -> !outOfBounds(neighbor))
+                .toList();
     }
 
     public boolean outOfBounds(Point p) {
