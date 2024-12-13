@@ -23,7 +23,9 @@ public class Runner {
                 new Solutions(8, new Day08()),
                 new Solutions(9, new Day09()),
                 new Solutions(10, new Day10()),
-                new Solutions(11, new Day11())
+                new Solutions(11, new Day11()),
+                new Solutions(12, new Day12()),
+                new Solutions(13, new Day13())
         );
         solutions.forEach(sol -> {
             var start = Instant.now();

@@ -32,6 +32,7 @@ public class Day11 implements Day {
                 .reduce(Long::sum).orElse(-1L);
     }
 
+    // Transformer with a cache to keep track of how many stones a certain stone will transform into based on amount of blinks left
     private record StoneTransformations(HashMap<Key, Long> cache) {
 
         static StoneTransformations instance() {
@@ -39,7 +40,7 @@ public class Day11 implements Day {
         }
 
         private Long transform(String stone, int blinks) {
-            // If no more blinks, we have the current stone
+            // If no more blinks, we keep the current stone
             if (blinks == 0) {
                 return 1L;
             }
