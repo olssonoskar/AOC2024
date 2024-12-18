@@ -16,6 +16,7 @@ import com.olsson.aoc2024.days.Day13;
 import com.olsson.aoc2024.days.Day14;
 import com.olsson.aoc2024.days.Day15;
 import com.olsson.aoc2024.days.Day16;
+import com.olsson.aoc2024.days.Day17;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -185,5 +186,15 @@ class DayTests {
     @Test
     void test16_22() {
         assertEquals(64, new Day16().part2("16_12"));
+    }
+
+    @Test
+    void test17_1() {
+        assertEquals("4, 6, 3, 5, 6, 3, 5, 2, 1, 0", new Day17().part1("17_1"));
+    }
+
+    @Test
+    void test17_2() {
+        assertEquals(117440, new Day17().part2("17_2"));
     }
 }
