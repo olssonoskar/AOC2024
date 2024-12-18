@@ -50,6 +50,18 @@ public class Grid {
                 .toList();
     }
 
+    public Point find(String character) {
+        for (int i = 0; i < height(); i++) {
+            for (int j = 0; j < width(); j++) {
+                var test = new Point(j, i);
+                if (get(test).equals(character)) {
+                    return test;
+                }
+            }
+        }
+        return new Point(-1, -1);
+    }
+
     public boolean outOfBounds(Point p) {
         return p.x() >= width() || p.x() < 0 || p.y() >= height() || p.y() < 0;
     }
